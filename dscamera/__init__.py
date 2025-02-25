@@ -1,3 +1,4 @@
+from .version import __version__
 from .camera import DSCamera
 
-__version__ = "0.0.4"
+__all__ = ["DSCamera", "__version__"]

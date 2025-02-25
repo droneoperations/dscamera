@@ -2,7 +2,9 @@ from os import path
 
 from setuptools import setup
 
-from dscamera import __version__
+# Read version from version.py
+with open("dscamera/version.py", "r") as f:
+    exec(f.read())
 
 here = path.abspath(path.dirname(__file__))
 with open(path.join(here, "README.md"), encoding="utf-8") as f:
@@ -10,7 +12,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="dscamera",
-    version=__version__,
+    version=__version__,  # This comes from the exec() above
     license="MIT License",
     install_requires=["numpy", "opencv-python"],
     description="Python library for Double Sphere Camera Model",
