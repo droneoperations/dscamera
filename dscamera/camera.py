@@ -146,12 +146,7 @@ class DSCamera(object):
         else:
             unproj_pts = k.unsqueeze(-1) * torch.stack([mx, my, mz], dim=-1)
         unproj_pts[..., 2] -= self.xi
-
-        # Calculate fov
-        unprojected_fov_cos = unproj_pts[..., 2]  # unproj_pts @ z_axis
-        fov_mask = unprojected_fov_cos >= self.fov_cos
-        valid_mask *= fov_mask
-        return unproj_pts, valid_mask
+        return unproj_pts
 
     def world2cam(self, point3D):
         """world2cam(point3D) projects a 3D point on to the image.
