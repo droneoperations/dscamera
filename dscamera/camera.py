@@ -112,7 +112,7 @@ class DSCamera(object):
         """
         # Case: point2D = list([u, v]) or np.array()
         if isinstance(point2D, (list, np.ndarray)):
-            u, v = point2D
+            u, v = point2D[:, 0], point2D[:, 1]
         # Case: point2D = list([Scalar, Scalar])
         if not hasattr(u, "__len__"):
             u, v = np.array([u]), np.array([v])
